@@ -31,13 +31,25 @@
 
 <!--Ractive template - how to display data-->
     <script id='myTemplate' type='text/ractive'>
-	
-			{{#weather}}
-			<li>{{weather_state_name}}</li>
-            <li><img src="https://www.metaweather.com/static/img/weather/{{weather_state_abbr}}.svg" height="100" /></li>
-            
-			{{/weather}}
-
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Weather</th>
+                    <th>Wind Speed</th>
+                    <th>Temperature</th>
+                    <th>Humidity</th>
+                </tr>
+                {{#weather}}
+                <tr>
+                    <td>{{applicable_date}}</td>
+                    <td><img src="https://www.metaweather.com/static/img/weather/{{weather_state_abbr}}.svg" height="20" /></td>
+                    <td>{{format(wind_speed)}}</td>
+                    <td>{{format(the_temp)}}</td>
+                    <td>{{humidity}}</td>
+                </tr>
+                {{/weather}}
+            </table>
+    
     </script>
 
 </body>
